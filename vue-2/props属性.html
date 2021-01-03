@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<hr>
+<div id="app">
+    <com user="tom"></com>
+    <com user="tom" color="red"></com>
+    <com user="tom" color="blue"></com>
+</div>
+
+<script src="js/vue.min.js"></script>
+<script>
+    let com={template:`<div :class="color">这是第一个组件</div>`,
+    props:['color','user'],
+        created:function (){
+            console.log(this.user)
+        }
+
+
+    }
+    new Vue({
+        el: "#app",
+
+        data: {},
+        components:{
+            com:com,
+        }
+    })
+</script>
+
+</body>
+</html>

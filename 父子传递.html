@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<hr>
+<div id="app">
+    <input type="text" v-model="user">
+    <br>
+    父组件{{user}}
+<!--    父组件向子组件传递数据需要在子组件标签上绑定任意一个属性-->
+    <com :test="user"></com>
+</div>
+
+<script src="js/vue.min.js"></script>
+<script>
+    let com={
+        template:`<div>
+        父组件传来的数据----{{test}}</div>`,
+        props:['test'],
+    }
+    new Vue({
+        el: "#app",
+        data: {
+            user:'',
+        },
+        components:{
+            com:com
+        }
+    })
+</script>
+
+</body>
+</html>

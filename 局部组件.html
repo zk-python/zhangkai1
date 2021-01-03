@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<hr>
+<div id="app">
+    <qwe></qwe>
+</div>
+
+<script src="js/vue.min.js"></script>
+<script>
+    let qwe={
+        template:`<div>这是局部组件</div>`
+    }
+
+
+    new Vue({
+        el: "#app",
+
+        data: {},
+        components:{
+           'qwe':qwe,
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<hr>
+<div id="app">
+    <input type="text" v-model="username">
+    {{username}}父组件
+    <hr>
+    <com :test="username"></com>
+</div>
+
+<script src="js/vue.min.js"></script>
+<script>
+    let com ={
+        template:`<div>
+这是父组件传来的数据------》》》{{test}}
+</div>`,
+        props:['test']
+    }
+
+    new Vue({
+        el: "#app",
+
+        data: {
+            username:''
+        },
+        components:{
+            com:com
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<hr>
+<div id="app">
+    <h2>这是主页</h2>
+<!--    定义路由发起访问不同的组件的链接  通过to="/路由地址"-->
+    <router-link to="/index">管理页面</router-link>
+    <router-link to="/stu">学生页面</router-link>
+
+<!--    指定路由对用的组件出现的位置-->
+    <router-view></router-view>
+</div>
+
+<script src="js/vue.min.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+<script>
+    let first={
+        template:`<div>百知教育管理系统</div>`
+    }
+    let second={
+        template: `<div>学生管理</div>`
+    }
+
+    //为每个组件定义对应的路由
+    //定义组件与路由间的映射关系
+    let myrouter=new VueRouter({
+        routes:[
+            //path 指的是访问组建的路径，component代表path要访问的组件
+            {path:'/index',component:first},
+            {path:'/stu',component: second},
+        ]
+    })
+    new Vue({
+        el: "#app",
+
+        data: {},
+        component:{
+            first:first,
+            second:second,
+        },
+        //将写好的路由注入到vue中
+        //使用关键字router配置
+        router:myrouter,
+    })
+</script>
+
+</body>
+</html>

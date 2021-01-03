@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<hr>
+<div id="app">
+<!--   渲染组件-->
+    <com></com>
+</div>
+
+<script src="js/vue.min.js"></script>
+<script>
+    //组件定义
+    let com={
+        template: `<div>这是一个全局组件</div>`
+    }
+    //组件的注册
+    Vue.component('com',com)
+    new Vue({
+        el: "#app",
+
+        data: {},
+    })
+</script>
+
+</body>
+</html>

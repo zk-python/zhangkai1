@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<hr>
+<div id="app">
+    <com></com>
+</div>
+
+<script src="js/vue.min.js"></script>
+<script>
+    let com={
+        template:
+
+                `<div>
+这是我的组件
+<div>这是嵌套的div</div>
+<h3>{{count}}</h3>
+<button @click="change">点我</button>
+<h3>{{title}}</h3>
+</div>`,
+        data:function ()
+        {
+            return{
+                count:52,
+                title:'xo'
+            }
+        },
+        methods:{
+            change(){
+                this.count--;
+            },
+        },
+        created:function (){
+            //数值赋值完成后触发
+            if(this.count>50){
+                this.title='年轻人'
+            }else {
+                this.title="老年人"
+            }
+        }
+    }
+    Vue.component ('com',com)
+    //全局组件
+    Vue.component('com',com)
+    new Vue({
+        el: "#app",
+
+        data: {},
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<hr>
+<div id="app">
+</div>
+ 
+<script src="js/vue.min.js"></script>
+<script>
+//正常函数
+function add(a,b){
+    console.log(a+b);
+
+}
+//匿名函数
+let app=function (a,b){
+    console.log(a*b);
+}
+//箭头函数   就是对匿名函数的简化
+//若果函数只有一条打印语句  则花括号可以省略
+let app2= (a,b)=>console.log(a+b);
+let app3=(a,b)=>{
+    console.log(a+b);
+    console.log(a-b);
+}
+let ap4=(a,b)=>{
+    console.log(a+b);
+    console.log(a*b);
+}
+ap4(11,3)
+</script>
+
+</body>
+</html>

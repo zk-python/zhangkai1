@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            color: red;
+        }
+        .blue{
+            color:blue}
+    </style>
+</head>
+<body>
+<hr>
+<div id="app">
+    <com user="tom"></com>
+    <com user="tom" color="red"></com>
+    <com user="tom" color="blue"></com>
+</div>
+
+<script src="js/vue.min.js"></script>
+<script>
+    let com={
+        template:`<div :class="color">
+这是第一个组件
+
+</div>`,
+        //在组件中接收标签上的参数需要使用props来接收
+        //props可以理解为有一个数组  里边写的是名字
+        //可以把props看成一个只读data
+        props:['color','user'],
+        created:function (){
+            console.log(this.user);
+        }
+
+    }
+    new Vue({
+        el: "#app",
+
+        data: {},
+        components:{
+            com:com,
+        }
+    })
+</script>
+
+</body>
+</html>
